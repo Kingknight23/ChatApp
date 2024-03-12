@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat App</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul, ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chatSection {
+    background-color: white;
+    width: 80%; /* Adjust as needed */
+    border: 3px solid black ;
+    border-radius: 5px;
+    height: 300px; /* Adjust as needed */
+    min-height: 70vh;
+    margin: auto; /* Center horizontally */
+    overflow-y: auto;
+}
+
+.top {
+    width: 80%;
+    margin: auto; 
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.input-container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1%;
+}
+
+.input-container input[type="text"] {
+    width: 70%;
+    font-size: larger;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.input-container button , .top button {
+    font-size: larger;
+    color: white;
+    background-color: rgb(24, 119, 242);
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+
+.message , .message-sent , .red {
+    border: none;
+    font-size: x-large;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(29, 16, 16);
+    color : white;
+}
+
+.message-sent {
+    text-align: right;
+    background-color:  rgb(24, 119, 242);
+}
+
+#clear , .red , #disconnectBtn
+{
+    background-color: red;
+}
+
+#connectBtn
+{
+    margin : 0px 10px 0px 10px;
+}
+
+
+
+.state 
+{
+    text-align: center;
+    color: grey;
+    font-family: sans-serif;
+}
+</style>
+</head>
+<body>
+    <h1 >Messages: <span id="status">You are not connected</span></h1>
+    <section class="top">
+        <input type="text" name="connect" id="Connect" placeholder="Enter your username">
+        <button id="connectBtn">Connect</button>
+        <button id="disconnectBtn">Disconnect</button>
+    </section>
+    
+    <section class="chatSection">
+        <ul id="message">
+        </ul>
+    </section>
+    
+    <div class="input-container">
+        <input type="text" name="text" id="text" placeholder="Enter message">
+        <button type="submit" id="clear">Clear</button>
+        <button type="submit" id="send">Send</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src='client.js'></script>
+    <script src='eventListeners.js'></script>
+</body>
+</html>
